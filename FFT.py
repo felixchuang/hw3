@@ -15,7 +15,6 @@ s = serial.Serial(serdev, 115200)
 
 for i in range(0, int(100)):
     x0=s.readline()
-    print(x0)
     x[i] = float(x0)
     y0=s.readline()
     y[i] = float(y0)
@@ -26,11 +25,12 @@ for i in range(0, int(100)):
     
 
 fig, ax = plt.subplots(2, 1)
-ax[0].plot(t,x, label = "line x")
-ax[0].plot(t,y, label = "line y")
-ax[0].plot(t,z, label = "line z")
+ax[0].plot(t,x, label = 'x', color = 'b')
+ax[0].plot(t,y, label = 'y', color = 'r')
+ax[0].plot(t,z, label = 'z', color = 'g')
 ax[0].set_xlabel('Time')
 ax[0].set_ylabel('Acc Vector')
+ax[0].legend()
 ax[1].stem(t, tilt, use_line_collection=True)
 ax[1].set_xlabel('Time')
 ax[1].set_ylabel('Tilt')
